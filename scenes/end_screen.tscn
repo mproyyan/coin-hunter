@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1y8mrl4xw54h"]
+[gd_scene load_steps=3 format=3 uid="uid://c1y8mrl4xw54h"]
 
+[ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_hd7df"]
 [ext_resource type="FontFile" uid="uid://dmglb2881eqj7" path="res://assets/fonts/PixelOperator8.ttf" id="1_tvm8i"]
 
 [node name="EndScreen" type="CanvasLayer"]
+script = ExtResource("1_hd7df")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -20,3 +22,5 @@ offset_bottom = 501.0
 theme_override_fonts/font = ExtResource("1_tvm8i")
 theme_override_font_sizes/font_size = 32
 text = "Play Again"
+
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_play_again_button_pressed"]
