@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjqxp5aeaxbt5"]
+
+[ext_resource type="Texture2D" uid="uid://dama2y7dlfn0o" path="res://assets/sprites/platforms.png" id="1_jbx77"]
+[ext_resource type="Script" path="res://scripts/platform.gd" id="1_nv1pc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3qqn"]
+size = Vector2(30, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l2re"]
+size = Vector2(30, 12)
+
+[node name="DirtPlatform" type="AnimatableBody2D"]
+script = ExtResource("1_nv1pc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jbx77")
+region_enabled = true
+region_rect = Rect2(16, 16, 32, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k3qqn")
+one_way_collision = true
+
+[node name="PlatformArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformArea"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_3l2re")
+debug_color = Color(0.988651, 0, 0.29957, 0.42)

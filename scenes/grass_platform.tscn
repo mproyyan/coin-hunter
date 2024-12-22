@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://scripts/platform.gd" id="1_ns3q0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_als1f"]
-size = Vector2(46, 8)
+size = Vector2(30, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wcg5"]
-size = Vector2(46, 12)
+size = Vector2(30, 12)
 
 [node name="GrassPlatform" type="AnimatableBody2D"]
 script = ExtResource("1_ns3q0")
@@ -15,7 +15,7 @@ script = ExtResource("1_ns3q0")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ky5tp")
 region_enabled = true
-region_rect = Rect2(0, 0, 48, 8)
+region_rect = Rect2(16, 0, 32, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_als1f")
