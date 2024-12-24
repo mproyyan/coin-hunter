@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cd4d1d1kcn40h"]
+[gd_scene load_steps=57 format=3 uid="uid://cd4d1d1kcn40h"]
 
 [ext_resource type="Texture2D" uid="uid://d10o1ct2k7dlk" path="res://assets/sprites/world_tileset.png" id="1_q1rtm"]
 [ext_resource type="PackedScene" uid="uid://cjqxp5aeaxbt5" path="res://scenes/dirt_platform.tscn" id="2_gw7pc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dirlapx0y23cl" path="res://scenes/killzone.tscn" id="5_lvmlc"]
 [ext_resource type="PackedScene" uid="uid://cm85teqoc7rj" path="res://scenes/frozen_area.tscn" id="6_vro42"]
 [ext_resource type="PackedScene" uid="uid://uu8gklnqe7ho" path="res://scenes/stomper.tscn" id="7_fqf8r"]
+[ext_resource type="PackedScene" uid="uid://6mxp8856ho0d" path="res://scenes/destructible_item.tscn" id="8_ufoml"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apu4c"]
 texture = ExtResource("1_q1rtm")
@@ -911,3 +912,18 @@ libraries = {
 "": SubResource("AnimationLibrary_70w8e")
 }
 autoplay = "stomp"
+
+[node name="DestructibleItem" parent="." instance=ExtResource("8_ufoml")]
+position = Vector2(1480, -344)
+
+[node name="DestructibleItem2" parent="." instance=ExtResource("8_ufoml")]
+position = Vector2(1464, -328)
+
+[node name="DestructibleItem3" parent="." instance=ExtResource("8_ufoml")]
+position = Vector2(1464, -344)
+
+[node name="DestructibleItem4" parent="." instance=ExtResource("8_ufoml")]
+position = Vector2(1480, -328)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1422, -334)
