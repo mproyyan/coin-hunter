@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://uu8gklnqe7ho"]
+[gd_scene load_steps=4 format=3 uid="uid://uu8gklnqe7ho"]
 
+[ext_resource type="Script" path="res://scripts/stomper.gd" id="1_rcv0a"]
 [ext_resource type="Texture2D" uid="uid://d10o1ct2k7dlk" path="res://assets/sprites/world_tileset.png" id="1_tahwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7i8f1"]
 size = Vector2(94, 58.5)
 
 [node name="Stomper" type="AnimatableBody2D"]
+script = ExtResource("1_rcv0a")
 
 [node name="Sprites" type="Node2D" parent="."]
 
