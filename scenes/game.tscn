@@ -1,9 +1,10 @@
-[gd_scene load_steps=46 format=3 uid="uid://cd4d1d1kcn40h"]
+[gd_scene load_steps=50 format=3 uid="uid://cd4d1d1kcn40h"]
 
 [ext_resource type="Texture2D" uid="uid://d10o1ct2k7dlk" path="res://assets/sprites/world_tileset.png" id="1_q1rtm"]
 [ext_resource type="PackedScene" uid="uid://cjqxp5aeaxbt5" path="res://scenes/dirt_platform.tscn" id="2_gw7pc"]
 [ext_resource type="PackedScene" uid="uid://dhjfbrhsaeij1" path="res://scenes/grass_platform.tscn" id="3_kytk4"]
 [ext_resource type="PackedScene" uid="uid://dnw547eif3d8m" path="res://scenes/ice_platform.tscn" id="4_rgeet"]
+[ext_resource type="PackedScene" uid="uid://dirlapx0y23cl" path="res://scenes/killzone.tscn" id="5_lvmlc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apu4c"]
 texture = ExtResource("1_q1rtm")
@@ -667,6 +668,14 @@ _data = {
 "slide": SubResource("Animation_ktigd")
 }
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vfp85"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsmlf"]
+size = Vector2(115, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uernw"]
+size = Vector2(87, 55.5)
+
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -814,3 +823,31 @@ libraries = {
 "": SubResource("AnimationLibrary_5gmnr")
 }
 autoplay = "slide"
+
+[node name="DirtPlatform9" parent="Platforms" instance=ExtResource("2_gw7pc")]
+position = Vector2(2117, -324)
+
+[node name="Killzones" type="Node2D" parent="."]
+
+[node name="Killzone" parent="Killzones" instance=ExtResource("5_lvmlc")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone"]
+position = Vector2(853, 50)
+shape = SubResource("WorldBoundaryShape2D_vfp85")
+debug_color = Color(0.939599, 0.178058, 0.434474, 0.42)
+
+[node name="Killzone2" parent="Killzones" instance=ExtResource("5_lvmlc")]
+position = Vector2(2092, -303)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone2"]
+position = Vector2(14.5, 54.5)
+shape = SubResource("RectangleShape2D_tsmlf")
+debug_color = Color(0.727862, 0.47469, 0.00548787, 0.42)
+
+[node name="Killzone3" parent="Killzones" instance=ExtResource("5_lvmlc")]
+position = Vector2(4540, -543)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone3"]
+position = Vector2(10.5, 21.25)
+shape = SubResource("RectangleShape2D_uernw")
+debug_color = Color(0.722156, 0.4779, 0.0450831, 0.42)
