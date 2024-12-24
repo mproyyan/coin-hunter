@@ -553,44 +553,6 @@ _data = {
 "slide": SubResource("Animation_e84vd")
 }
 
-[sub_resource type="Animation" id="Animation_gulm7"]
-resource_name = "slide"
-length = 4.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(2425, -289), Vector2(2690, -289), Vector2(2425, -289)]
-}
-
-[sub_resource type="Animation" id="Animation_mkgwb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2425, -289)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vj5lx"]
-_data = {
-"RESET": SubResource("Animation_mkgwb"),
-"slide": SubResource("Animation_gulm7")
-}
-
 [sub_resource type="Animation" id="Animation_0cwp0"]
 resource_name = "slide"
 length = 4.0
@@ -665,6 +627,44 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_1amkt"),
 "slide": SubResource("Animation_0qblr")
+}
+
+[sub_resource type="Animation" id="Animation_ktigd"]
+resource_name = "slide"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2437, -293), Vector2(2690, -293), Vector2(2437, -293)]
+}
+
+[sub_resource type="Animation" id="Animation_wcek2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2437, -293)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5gmnr"]
+_data = {
+"RESET": SubResource("Animation_wcek2"),
+"slide": SubResource("Animation_ktigd")
 }
 
 [node name="Game" type="Node2D"]
@@ -775,22 +775,12 @@ libraries = {
 autoplay = "up_and_down"
 
 [node name="DirtPlatform7" parent="Platforms" instance=ExtResource("2_gw7pc")]
-position = Vector2(2425, -289)
+position = Vector2(2908, -245)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/DirtPlatform7"]
 root_node = NodePath("../../DirtPlatform7")
 libraries = {
 "": SubResource("AnimationLibrary_uq4nu")
-}
-autoplay = "slide"
-
-[node name="DirtPlatform8" parent="Platforms" instance=ExtResource("2_gw7pc")]
-position = Vector2(2605.87, -289)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/DirtPlatform8"]
-root_node = NodePath("../../DirtPlatform7")
-libraries = {
-"": SubResource("AnimationLibrary_vj5lx")
 }
 autoplay = "slide"
 
@@ -814,3 +804,13 @@ autoplay = "slide"
 
 [node name="IcePlatform3" parent="Platforms" instance=ExtResource("4_rgeet")]
 position = Vector2(5161, -512)
+
+[node name="DirtPlatform8" parent="Platforms" instance=ExtResource("2_gw7pc")]
+position = Vector2(2437, -293)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/DirtPlatform8"]
+root_node = NodePath("../../DirtPlatform8")
+libraries = {
+"": SubResource("AnimationLibrary_5gmnr")
+}
+autoplay = "slide"
