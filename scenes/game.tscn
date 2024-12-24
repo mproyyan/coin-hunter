@@ -1,10 +1,11 @@
-[gd_scene load_steps=50 format=3 uid="uid://cd4d1d1kcn40h"]
+[gd_scene load_steps=52 format=3 uid="uid://cd4d1d1kcn40h"]
 
 [ext_resource type="Texture2D" uid="uid://d10o1ct2k7dlk" path="res://assets/sprites/world_tileset.png" id="1_q1rtm"]
 [ext_resource type="PackedScene" uid="uid://cjqxp5aeaxbt5" path="res://scenes/dirt_platform.tscn" id="2_gw7pc"]
 [ext_resource type="PackedScene" uid="uid://dhjfbrhsaeij1" path="res://scenes/grass_platform.tscn" id="3_kytk4"]
 [ext_resource type="PackedScene" uid="uid://dnw547eif3d8m" path="res://scenes/ice_platform.tscn" id="4_rgeet"]
 [ext_resource type="PackedScene" uid="uid://dirlapx0y23cl" path="res://scenes/killzone.tscn" id="5_lvmlc"]
+[ext_resource type="PackedScene" uid="uid://cm85teqoc7rj" path="res://scenes/frozen_area.tscn" id="6_vro42"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apu4c"]
 texture = ExtResource("1_q1rtm")
@@ -676,6 +677,9 @@ size = Vector2(115, 57)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uernw"]
 size = Vector2(87, 55.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g71ye"]
+size = Vector2(678, 255)
+
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -851,3 +855,11 @@ position = Vector2(4540, -543)
 position = Vector2(10.5, 21.25)
 shape = SubResource("RectangleShape2D_uernw")
 debug_color = Color(0.722156, 0.4779, 0.0450831, 0.42)
+
+[node name="FrozenArea" parent="." instance=ExtResource("6_vro42")]
+position = Vector2(5194, -136)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrozenArea"]
+position = Vector2(201, 40.5)
+shape = SubResource("RectangleShape2D_g71ye")
+debug_color = Color(0.974177, 0.101085, 0.320439, 0.42)
