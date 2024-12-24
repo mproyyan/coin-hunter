@@ -1,0 +1,159 @@
+[gd_scene load_steps=3 format=3 uid="uid://uu8gklnqe7ho"]
+
+[ext_resource type="Texture2D" uid="uid://d10o1ct2k7dlk" path="res://assets/sprites/world_tileset.png" id="1_tahwc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7i8f1"]
+size = Vector2(94, 58.5)
+
+[node name="Stomper" type="AnimatableBody2D"]
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites"]
+position = Vector2(-1, -1)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites"]
+position = Vector2(-1, 15)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites"]
+position = Vector2(-1, 31)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites"]
+position = Vector2(-1, 47)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprites"]
+position = Vector2(15, -1)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprites"]
+position = Vector2(15, 15)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprites"]
+position = Vector2(15, 31)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprites"]
+position = Vector2(15, 47)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D9" type="Sprite2D" parent="Sprites"]
+position = Vector2(31, -1)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D10" type="Sprite2D" parent="Sprites"]
+position = Vector2(31, 15)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D11" type="Sprite2D" parent="Sprites"]
+position = Vector2(31, 31)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D12" type="Sprite2D" parent="Sprites"]
+position = Vector2(31, 47)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D13" type="Sprite2D" parent="Sprites"]
+position = Vector2(47, -1)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D14" type="Sprite2D" parent="Sprites"]
+position = Vector2(47, 15)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D15" type="Sprite2D" parent="Sprites"]
+position = Vector2(47, 31)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D16" type="Sprite2D" parent="Sprites"]
+position = Vector2(47, 47)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D17" type="Sprite2D" parent="Sprites"]
+position = Vector2(63, -1)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D18" type="Sprite2D" parent="Sprites"]
+position = Vector2(63, 15)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D19" type="Sprite2D" parent="Sprites"]
+position = Vector2(63, 31)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D20" type="Sprite2D" parent="Sprites"]
+position = Vector2(63, 47)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D21" type="Sprite2D" parent="Sprites"]
+position = Vector2(79, -1)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D22" type="Sprite2D" parent="Sprites"]
+position = Vector2(79, 15)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D23" type="Sprite2D" parent="Sprites"]
+position = Vector2(79, 31)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Sprite2D24" type="Sprite2D" parent="Sprites"]
+position = Vector2(79, 47)
+texture = ExtResource("1_tahwc")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(39, 20.75)
+shape = SubResource("RectangleShape2D_7i8f1")
+debug_color = Color(0.954105, 0.151207, 0.391803, 0.42)
