@@ -1,9 +1,25 @@
-[gd_scene load_steps=47 format=3 uid="uid://in6peqhwl4ah"]
+[gd_scene load_steps=51 format=3 uid="uid://in6peqhwl4ah"]
 
 [ext_resource type="Texture2D" uid="uid://dw50l6efpflr8" path="res://assets/sprites/knight.png" id="1_5h8oi"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_wkr1s"]
 [ext_resource type="AudioStream" uid="uid://bfadimgt4cp8" path="res://assets/sounds/jump.wav" id="3_lp2qg"]
 [ext_resource type="AudioStream" uid="uid://bn675hl6ba1h3" path="res://assets/sounds/hurt.wav" id="4_5bl7x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibfq8"]
+atlas = ExtResource("1_5h8oi")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2f1c"]
+atlas = ExtResource("1_5h8oi")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p23sd"]
+atlas = ExtResource("1_5h8oi")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huh2f"]
+atlas = ExtResource("1_5h8oi")
+region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t3ky5"]
 atlas = ExtResource("1_5h8oi")
@@ -165,6 +181,23 @@ region = Rect2(224, 96, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ibfq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2f1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p23sd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huh2f")
+}],
+"loop": false,
+"name": &"die",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_t3ky5")
 }, {
 "duration": 1.0,
@@ -203,9 +236,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qytlu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rmk6x")
 }],
 "loop": false,
 "name": &"jump",
@@ -325,10 +355,8 @@ script = ExtResource("1_wkr1s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6r76w")
-animation = &"hurt"
+animation = &"jump"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4.5)

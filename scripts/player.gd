@@ -30,6 +30,8 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	
+	play_animation(direction)
+	
 	change_direction_state(direction)
 	
 	rollin()
@@ -57,6 +59,21 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func play_animation(direction: int):
+	if Global.player_alive:
+		if rollin_in_progress:
+			animated_sprite.play("rollin")
+		elif not is_on_floor():
+			animated_sprite.play("jump")
+		elif knockback_in_progress:
+			animated_sprite.play("knockback")
+		elif direction > 0 or direction_state < 0:
+			animated_sprite.play("run")
+		elif direction == 0:
+			animated_sprite.play("idle")
+	elif not Global.player_alive:
+		animated_sprite.play("die")
 
 func change_direction_state(direction: int):
 	if direction == 1:
