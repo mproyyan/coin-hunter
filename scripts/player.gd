@@ -17,6 +17,9 @@ var rollin_in_progress = false
 var knockback_in_progress = false
 var die_animation_played = false
 
+func player():
+	pass
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
