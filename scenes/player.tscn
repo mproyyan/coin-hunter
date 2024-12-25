@@ -85,6 +85,8 @@ wait_time = 2.0
 stream = ExtResource("4_5bl7x")
 
 [node name="KnockbackTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="timeout" from="RollinTimer" to="." method="_on_rollin_timer_timeout"]
 [connection signal="timeout" from="DeadTimer" to="." method="_on_dead_timer_timeout"]
+[connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]
