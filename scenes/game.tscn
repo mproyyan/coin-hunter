@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cd4d1d1kcn40h"]
+[gd_scene load_steps=58 format=3 uid="uid://cd4d1d1kcn40h"]
 
 [ext_resource type="Texture2D" uid="uid://d10o1ct2k7dlk" path="res://assets/sprites/world_tileset.png" id="1_q1rtm"]
 [ext_resource type="PackedScene" uid="uid://cjqxp5aeaxbt5" path="res://scenes/dirt_platform.tscn" id="2_gw7pc"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cm85teqoc7rj" path="res://scenes/frozen_area.tscn" id="6_vro42"]
 [ext_resource type="PackedScene" uid="uid://uu8gklnqe7ho" path="res://scenes/stomper.tscn" id="7_fqf8r"]
 [ext_resource type="PackedScene" uid="uid://6mxp8856ho0d" path="res://scenes/destructible_item.tscn" id="8_ufoml"]
+[ext_resource type="PackedScene" uid="uid://edr7vj7mat2u" path="res://scenes/green_slime.tscn" id="9_hxhhd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apu4c"]
 texture = ExtResource("1_q1rtm")
@@ -519,6 +520,21 @@ _data = {
 "up_and_down": SubResource("Animation_77whx")
 }
 
+[sub_resource type="Animation" id="Animation_sac5x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2908, -245)]
+}
+
 [sub_resource type="Animation" id="Animation_e84vd"]
 resource_name = "slide"
 length = 4.0
@@ -536,7 +552,13 @@ tracks/0/keys = {
 "values": [Vector2(2908, -245), Vector2(2690, -245), Vector2(2908, -245)]
 }
 
-[sub_resource type="Animation" id="Animation_sac5x"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uq4nu"]
+_data = {
+"RESET": SubResource("Animation_sac5x"),
+"slide": SubResource("Animation_e84vd")
+}
+
+[sub_resource type="Animation" id="Animation_yyeya"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -548,13 +570,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2908, -245)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uq4nu"]
-_data = {
-"RESET": SubResource("Animation_sac5x"),
-"slide": SubResource("Animation_e84vd")
+"values": [Vector2(4343, -228)]
 }
 
 [sub_resource type="Animation" id="Animation_0cwp0"]
@@ -574,7 +590,13 @@ tracks/0/keys = {
 "values": [Vector2(4343, -228), Vector2(4083, -228), Vector2(4343, -228)]
 }
 
-[sub_resource type="Animation" id="Animation_yyeya"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dqeis"]
+_data = {
+"RESET": SubResource("Animation_yyeya"),
+"slide": SubResource("Animation_0cwp0")
+}
+
+[sub_resource type="Animation" id="Animation_1amkt"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -586,13 +608,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(4343, -228)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dqeis"]
-_data = {
-"RESET": SubResource("Animation_yyeya"),
-"slide": SubResource("Animation_0cwp0")
+"values": [Vector2(3826, -276)]
 }
 
 [sub_resource type="Animation" id="Animation_0qblr"]
@@ -612,7 +628,13 @@ tracks/0/keys = {
 "values": [Vector2(3826, -276), Vector2(4083, -276), Vector2(3826, -276)]
 }
 
-[sub_resource type="Animation" id="Animation_1amkt"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_euclm"]
+_data = {
+"RESET": SubResource("Animation_1amkt"),
+"slide": SubResource("Animation_0qblr")
+}
+
+[sub_resource type="Animation" id="Animation_wcek2"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -624,13 +646,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(3826, -276)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_euclm"]
-_data = {
-"RESET": SubResource("Animation_1amkt"),
-"slide": SubResource("Animation_0qblr")
+"values": [Vector2(2437, -293)]
 }
 
 [sub_resource type="Animation" id="Animation_ktigd"]
@@ -650,21 +666,6 @@ tracks/0/keys = {
 "values": [Vector2(2437, -293), Vector2(2690, -293), Vector2(2437, -293)]
 }
 
-[sub_resource type="Animation" id="Animation_wcek2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2437, -293)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5gmnr"]
 _data = {
 "RESET": SubResource("Animation_wcek2"),
@@ -682,6 +683,21 @@ size = Vector2(87, 55.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g71ye"]
 size = Vector2(678, 255)
 
+[sub_resource type="Animation" id="Animation_7hyk2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1497, -407)]
+}
+
 [sub_resource type="Animation" id="Animation_cthyd"]
 resource_name = "stomp"
 length = 2.5
@@ -697,21 +713,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1497, -407), Vector2(1497, -375), Vector2(1497, -375), Vector2(1497, -407), Vector2(1497, -407)]
-}
-
-[sub_resource type="Animation" id="Animation_7hyk2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1497, -407)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_70w8e"]
@@ -913,17 +914,21 @@ libraries = {
 }
 autoplay = "stomp"
 
-[node name="DestructibleItem" parent="." instance=ExtResource("8_ufoml")]
+[node name="DestructibleItems" type="Node2D" parent="."]
+
+[node name="DestructibleItem" parent="DestructibleItems" instance=ExtResource("8_ufoml")]
 position = Vector2(1480, -344)
 
-[node name="DestructibleItem2" parent="." instance=ExtResource("8_ufoml")]
+[node name="DestructibleItem2" parent="DestructibleItems" instance=ExtResource("8_ufoml")]
 position = Vector2(1464, -328)
 
-[node name="DestructibleItem3" parent="." instance=ExtResource("8_ufoml")]
+[node name="DestructibleItem3" parent="DestructibleItems" instance=ExtResource("8_ufoml")]
 position = Vector2(1464, -344)
 
-[node name="DestructibleItem4" parent="." instance=ExtResource("8_ufoml")]
+[node name="DestructibleItem4" parent="DestructibleItems" instance=ExtResource("8_ufoml")]
 position = Vector2(1480, -328)
 
+[node name="GreenSlime" parent="." instance=ExtResource("9_hxhhd")]
+position = Vector2(104, -12)
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1422, -334)
