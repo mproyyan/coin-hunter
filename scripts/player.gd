@@ -8,6 +8,7 @@ const ROLL_SPEED = 400
 @onready var jump_audio: AudioStreamPlayer2D = $JumpAudio
 @onready var rollin_timer: Timer = $RollinTimer
 @onready var dead_timer: Timer = $DeadTimer
+@onready var hurt_audio: AudioStreamPlayer2D = $HurtAudio
 
 var direction_state = 1
 var rollin_in_progress = false
@@ -65,6 +66,10 @@ func damage_taken(damage: int):
 		Global.player_alive = false
 		Engine.time_scale = 0.5
 		dead_timer.start()
+
+func frostbite():
+	hurt_audio.play()
+	damage_taken(2)
 
 func _on_dead_timer_timeout() -> void:
 	Engine.time_scale = 1
