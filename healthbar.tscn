@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6sao8orkp7sj"]
+
+[ext_resource type="FontFile" uid="uid://dmglb2881eqj7" path="res://assets/fonts/PixelOperator8.ttf" id="1_jvnvj"]
+[ext_resource type="Script" path="res://scripts/healthbar.gd" id="1_wj4v6"]
+
+[node name="Healthbar" type="Label"]
+offset_right = 22.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("1_jvnvj")
+theme_override_font_sizes/font_size = 8
+text = "50"
+horizontal_alignment = 1
+script = ExtResource("1_wj4v6")
