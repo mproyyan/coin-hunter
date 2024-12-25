@@ -56,3 +56,6 @@ func _on_rollin_timer_timeout() -> void:
 	rollin_timer.stop()
 	Global.player_current_rollin = false
 	rollin_in_progress = false
+	
+func damage_taken(damage: int):
+	pass
