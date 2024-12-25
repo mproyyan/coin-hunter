@@ -9,9 +9,11 @@ const ROLL_SPEED = 400
 @onready var rollin_timer: Timer = $RollinTimer
 @onready var dead_timer: Timer = $DeadTimer
 @onready var hurt_audio: AudioStreamPlayer2D = $HurtAudio
+@onready var knockback_timer: Timer = $KnockbackTimer
 
 var direction_state = 1
 var rollin_in_progress = false
+var knockback_in_progress = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -70,6 +72,12 @@ func damage_taken(damage: int):
 func frostbite():
 	hurt_audio.play()
 	damage_taken(2)
+	
+func knockback(damage: int):
+	hurt_audio.play()
+	knockback_in_progress = true
+	knockback_timer.start()
+	damage_taken(damage)
 
 func _on_dead_timer_timeout() -> void:
 	Engine.time_scale = 1
