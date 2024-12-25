@@ -355,7 +355,7 @@ script = ExtResource("1_wkr1s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6r76w")
-animation = &"jump"
+animation = &"die"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -389,6 +389,7 @@ stream = ExtResource("4_5bl7x")
 [node name="KnockbackTimer" type="Timer" parent="."]
 wait_time = 0.5
 
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="RollinTimer" to="." method="_on_rollin_timer_timeout"]
 [connection signal="timeout" from="DeadTimer" to="." method="_on_dead_timer_timeout"]
 [connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]

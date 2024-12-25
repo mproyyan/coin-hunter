@@ -15,6 +15,7 @@ const ROLL_SPEED = 400
 var direction_state = 1
 var rollin_in_progress = false
 var knockback_in_progress = false
+var die_animation_played = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -72,8 +73,9 @@ func play_animation(direction: int):
 			animated_sprite.play("run")
 		elif direction == 0:
 			animated_sprite.play("idle")
-	elif not Global.player_alive:
+	elif not Global.player_alive and not die_animation_played:
 		animated_sprite.play("die")
+		die_animation_played = true
 
 func change_direction_state(direction: int):
 	if direction == 1:
@@ -116,3 +118,11 @@ func _on_dead_timer_timeout() -> void:
 
 func _on_knockback_timer_timeout() -> void:
 	knockback_in_progress = false
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body.has_method("green_slime"):
+		knockback(10)
+	elif body.has_method("poisonous_slime"):
+		knockback(20)
+	elif body.has_method("stomper"):
+		damage_taken(100)
