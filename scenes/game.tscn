@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://cd4d1d1kcn40h"]
+[gd_scene load_steps=109 format=3 uid="uid://cd4d1d1kcn40h"]
 
 [ext_resource type="Texture2D" uid="uid://d10o1ct2k7dlk" path="res://assets/sprites/world_tileset.png" id="1_q1rtm"]
 [ext_resource type="PackedScene" uid="uid://cjqxp5aeaxbt5" path="res://scenes/dirt_platform.tscn" id="2_gw7pc"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://edr7vj7mat2u" path="res://scenes/green_slime.tscn" id="9_hxhhd"]
 [ext_resource type="PackedScene" uid="uid://db6vmicfkawde" path="res://scenes/poisonous_slime.tscn" id="10_2mehy"]
 [ext_resource type="PackedScene" uid="uid://in6peqhwl4ah" path="res://scenes/player.tscn" id="11_1shx2"]
+[ext_resource type="PackedScene" uid="uid://d2ngqvml26ofn" path="res://scenes/coin.tscn" id="12_6iqs7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apu4c"]
 texture = ExtResource("1_q1rtm")
@@ -1726,4 +1727,8 @@ libraries = {
 autoplay = "move"
 
 [node name="Player" parent="." instance=ExtResource("11_1shx2")]
+z_index = 5
 position = Vector2(-119, -15)
+
+[node name="Coin" parent="." instance=ExtResource("12_6iqs7")]
+position = Vector2(-24, -7)
