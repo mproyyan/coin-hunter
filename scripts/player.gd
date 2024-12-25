@@ -105,7 +105,7 @@ func _on_rollin_timer_timeout() -> void:
 	
 func damage_taken(damage: int):
 	Global.player_health -= damage
-	if Global.player_health < 0 and Global.player_alive:
+	if Global.player_health <= 0 and Global.player_alive:
 		Global.player_health = 0
 		Global.player_alive = false
 		Engine.time_scale = 0.5
