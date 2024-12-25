@@ -3,10 +3,12 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const ROLL_SPEED = 300
 
 @onready var jump_audio: AudioStreamPlayer2D = $JumpAudio
 
 var direction_state = 1
+var rollin_in_progress = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -24,8 +26,13 @@ func _physics_process(delta: float) -> void:
 	
 	change_direction_state(direction)
 	
+	rollin()
+	if rollin_in_progress:
+		print("ok", ROLL_SPEED * direction_state)
+		velocity.x = ROLL_SPEED * direction_state
+	
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * ROLL_SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -36,3 +43,9 @@ func change_direction_state(direction: int):
 		direction_state = 1
 	elif direction == -1:
 		direction_state = -1
+		
+func rollin():
+	if Input.is_action_just_pressed("rollin") and Global.player_alive:
+		print("user press rollin")
+		Global.player_current_rollin = true
+		rollin_in_progress = true

@@ -73,3 +73,6 @@ limit_smoothed = true
 
 [node name="JumpAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_lp2qg")
+
+[node name="RollinTimer" type="Timer" parent="."]
+wait_time = 0.8
