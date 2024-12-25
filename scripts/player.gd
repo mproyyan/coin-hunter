@@ -21,6 +21,10 @@ func player():
 	pass
 
 func _physics_process(delta: float) -> void:
+	# If die cannot move
+	if not Global.player_alive:
+		velocity.x = 0
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
