@@ -10,6 +10,7 @@ const ROLL_SPEED = 400
 @onready var dead_timer: Timer = $DeadTimer
 @onready var hurt_audio: AudioStreamPlayer2D = $HurtAudio
 @onready var knockback_timer: Timer = $KnockbackTimer
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var direction_state = 1
 var rollin_in_progress = false
@@ -32,9 +33,22 @@ func _physics_process(delta: float) -> void:
 	change_direction_state(direction)
 	
 	rollin()
-	if rollin_in_progress:
-		print(ROLL_SPEED * direction_state)
+	if rollin_in_progress and Global.player_alive:
 		velocity.x = ROLL_SPEED * direction_state
+	
+	if knockback_in_progress and Global.player_alive:
+		var knockback_direction = 1
+		if direction_state == 1:
+			knockback_direction = -1
+		elif direction_state == -1:
+			knockback_direction == 1
+			
+		velocity.x = knockback_direction * 100
+	
+	if direction_state == 1 and Global.player_alive:
+		animated_sprite.flip_h = false
+	elif direction_state == -1 and Global.player_alive:
+		animated_sprite.flip_h = true
 	
 	if direction:
 		velocity.x = direction * SPEED
@@ -51,7 +65,6 @@ func change_direction_state(direction: int):
 		
 func rollin():
 	if Input.is_action_just_pressed("rollin") and Global.player_alive:
-		print("user press rollin")
 		Global.player_current_rollin = true
 		rollin_in_progress = true
 		rollin_timer.start()
