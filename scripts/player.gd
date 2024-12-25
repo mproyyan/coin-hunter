@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and Global.player_alive:
 		velocity.y = JUMP_VELOCITY
 		jump_audio.play()
 
@@ -50,10 +50,11 @@ func _physics_process(delta: float) -> void:
 	elif direction_state == -1 and Global.player_alive:
 		animated_sprite.flip_h = true
 	
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if not knockback_in_progress and Global.player_alive:
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 
