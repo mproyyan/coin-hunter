@@ -77,4 +77,8 @@ stream = ExtResource("3_lp2qg")
 [node name="RollinTimer" type="Timer" parent="."]
 wait_time = 0.8
 
+[node name="DeadTimer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="timeout" from="RollinTimer" to="." method="_on_rollin_timer_timeout"]
+[connection signal="timeout" from="DeadTimer" to="." method="_on_dead_timer_timeout"]

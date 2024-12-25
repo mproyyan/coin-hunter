@@ -7,6 +7,7 @@ const ROLL_SPEED = 400
 
 @onready var jump_audio: AudioStreamPlayer2D = $JumpAudio
 @onready var rollin_timer: Timer = $RollinTimer
+@onready var dead_timer: Timer = $DeadTimer
 
 var direction_state = 1
 var rollin_in_progress = false
@@ -58,4 +59,13 @@ func _on_rollin_timer_timeout() -> void:
 	rollin_in_progress = false
 	
 func damage_taken(damage: int):
-	pass
+	Global.player_health -= damage
+	if Global.player_health < 0 and Global.player_alive:
+		Global.player_health = 0
+		Global.player_alive = false
+		Engine.time_scale = 0.5
+		dead_timer.start()
+
+func _on_dead_timer_timeout() -> void:
+	Engine.time_scale = 1
+	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
