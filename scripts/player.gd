@@ -72,6 +72,8 @@ func play_animation(direction: int):
 			animated_sprite.play("jump")
 		elif knockback_in_progress:
 			animated_sprite.play("knockback")
+		elif Global.can_play_frostbite_animation:
+			animated_sprite.play("hurt")
 		elif direction > 0 or direction_state < 0:
 			animated_sprite.play("run")
 		elif direction == 0:

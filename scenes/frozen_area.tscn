@@ -6,5 +6,12 @@
 script = ExtResource("1_e43ek")
 
 [node name="FrozenTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="HurtAnimationTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="FrozenTimer" to="." method="_on_frozen_timer_timeout"]
+[connection signal="timeout" from="HurtAnimationTimer" to="." method="_on_hurt_animation_timer_timeout"]
